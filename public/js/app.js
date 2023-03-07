@@ -5,12 +5,16 @@ const message2 = document.querySelector('#message2')
 const message3 = document.querySelector('#message3') 
 const icon = document.querySelector('img') 
 
+
 weatherForm.addEventListener('submit', (e) => {
     e.preventDefault()
     message1.textContent = 'Loading....'
     message2.textContent = ''
     message3.textContent = ''
-    fetch('http://localhost:3000/weather?address='+search.value).then((response) => {
+
+
+
+    fetch('/weather?address='+search.value).then((response) => {
         response.json().then((data) => {
             if(data.error) {
                 message1.textContent = data.error
